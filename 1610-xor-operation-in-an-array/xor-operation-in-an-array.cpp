@@ -12,15 +12,7 @@ public:
             ans = ans ^nums[i];
         }
         
-        // if(n==1){
-        //     return start;
-        // }
-        // if (n>=2){
-        //    ans = nums[0] ^ nums[1];
-        // }
-        // for(int i=2;i<n;i++){
-        //     ans = ans ^nums[i];
-        // }
+        
         return ans;
 
 
