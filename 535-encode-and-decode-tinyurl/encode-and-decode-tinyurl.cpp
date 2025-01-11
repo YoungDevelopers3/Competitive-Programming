@@ -7,7 +7,7 @@ public:
     string encode(string longUrl) {
         websites++;
         string addon=to_string(websites);
-        string tinyurl="http://tinyurl.com/4e9iAk";
+        string tinyurl="http://tinyurl.com/";
         tinyurl=tinyurl+addon;
         m[tinyurl]=longUrl;
         return tinyurl;
