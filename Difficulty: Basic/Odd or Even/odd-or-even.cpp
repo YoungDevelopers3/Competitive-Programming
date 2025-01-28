@@ -7,11 +7,10 @@ using namespace std;
 class Solution {
   public:
     bool isEven(int n) {
-        bool result=false;
-        if(n%2==0){
-            result=true;
-        }
-        return result;
+       if(n%2==0){
+           return true;
+       }
+       return false;
     }
 };
 
