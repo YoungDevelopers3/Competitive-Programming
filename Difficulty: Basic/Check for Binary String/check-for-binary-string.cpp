@@ -9,18 +9,19 @@ using namespace std;
 class Solution {
   public:
     bool isBinary(string& s) {
-        bool result=true;
+      
         for(char ch:s){
-            if(ch=='0'||ch=='1'){
-                result=true;
-                
+            
+            if(ch!='0' && ch!='1'){
+                return false;
             }
-            else{
-                result=false;
-                break;
-            }
+            
         }
-        return result;
+        return true;
+        
+        
+        
+        
         
         
     }
