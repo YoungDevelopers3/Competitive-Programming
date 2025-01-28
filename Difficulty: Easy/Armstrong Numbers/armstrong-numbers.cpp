@@ -9,19 +9,19 @@ using namespace std;
 class Solution {
   public:
     bool armstrongNumber(int n) {
-        bool result=true;
         int num=n;
-        int s=0;
+        int sum=0;
         while(num>0){
             int d=num%10;
-            s=s+(d*d*d);
+            sum=sum+(d*d*d);
             num=num/10;
         }
-        if(n!=s){
-            result=false;
+        if(n==sum){
+            return true;
         }
-        return result;
-        
+        else{
+            return false;
+        }
     }
 };
 
