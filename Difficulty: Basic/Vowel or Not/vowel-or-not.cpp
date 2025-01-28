@@ -6,12 +6,11 @@ using namespace std;
 class Solution{   
 public:
     string isVowel(char c){
-       if(c=='a'|| c=='i'||c=='e'||c=='o'||c=='u'|| c=='A'||c=='E'||c=='I'||c=='U'||c=='O'){
-           return "YES";           
-       }
-       else{
+       char ch=tolower(c);
+       if(ch!='a' && ch !='e' && ch!='i' && ch!='o' && ch!='u'){
            return "NO";
        }
+       return "YES";
     }
 };
 
