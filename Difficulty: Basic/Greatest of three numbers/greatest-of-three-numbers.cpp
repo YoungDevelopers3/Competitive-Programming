@@ -10,17 +10,15 @@ using namespace std;
 class Solution {
   public:
     int greatestOfThree(int A, int B, int C) {
-        int result=0;
-        if(A>B && A>C){
-            result=A;
-        }
-        else if(B>A && B>C){
-            result=B;
-        }
-        else{
-            result=C;
-        }
-        return result;
+       if(A>B && A>C){
+           return A;
+       }
+       else if(B>A && B>C){
+           return B;
+       }
+       else{
+           return C;
+       }
     }
 };
 
