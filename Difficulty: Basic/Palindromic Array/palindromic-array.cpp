@@ -11,21 +11,19 @@ using namespace std;
 class Solution {
   public:
     bool isPalinArray(vector<int> &arr) {
-        bool result=true;
-        for(int num:arr){
-            int n=num;
+        for(int n:arr){
+            int num=n;
             int rev=0;
-            while(n>0){
-                int d=n%10;
+            while(num>0){
+                int d=num%10;
                 rev=rev*10+d;
-                n=n/10;
+                num=num/10;
             }
-            if(num!=rev){
-                result=false;
-                break;
+            if(n!=rev){
+                return false; 
             }
         }
-        return result;
+        return true;
     }
 };
 
