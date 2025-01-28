@@ -24,11 +24,11 @@ cout << "~" << "\n";
 
 
 string to_upper(string str){
-    
-    for(char &ch:str){
-        ch=toupper(ch);
-        
-    }
-    return str;
+   string res="";
+   for(char ch:str){
+       ch=toupper(ch);
+       res=res+ch;
+   }
+   return res;
     
 }
