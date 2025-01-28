@@ -10,13 +10,13 @@ using namespace std;
 class Solution {
   public:
     int sumOfMatrix(int N, int M, vector<vector<int>> Grid) {
-        int s=0;
-        for(int i=0;i<N;i++){
-            for(int j=0;j<M;j++){
-               s=s+Grid[i][j]; 
-            }
-        }
-        return s;
+       int sum=0;
+       for(int i=0;i<N;i++){
+           for(int j=0;j<M;j++){
+               sum=sum+Grid[i][j];
+           }
+       }
+       return sum;
     }
 };
 
