@@ -10,19 +10,17 @@ using namespace std;
 class Solution {
   public:
     vector<int> findSum(int n) {
-        int se=0,so=0;
-        vector<int>result;
-        for(int i=1;i<=n;i++){
-            if(i%2==0){
-                se=se+i;
-            }
-            else{
-                so=so+i;
-            }
-        }
-        result.push_back(so);
-        result.push_back(se);
-        return result;
+       int se=0,so=0;
+       for(int i=1;i<=n;i++){
+           if(i%2==0){
+               se=se+i;
+           }
+           else{
+               so=so+i;
+           }
+       }
+       vector<int>result={so,se};
+       return result;
     }
 };
 
