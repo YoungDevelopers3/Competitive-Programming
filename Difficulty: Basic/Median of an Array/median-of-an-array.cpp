@@ -9,18 +9,16 @@ class Solution {
     double findMedian(vector<int> &arr) {
         sort(arr.begin(),arr.end());
         int n=arr.size();
-        int low=0;
-        int high=n-1;
-        double md=0;
-        if(n%2!=0){
-            int mid=low+(high-low)/2;
-            md=arr[mid];
+        int low=0,high=n-1;
+        int mid=low+(high-low)/2;
+        double result=0;
+        if(n%2==0){
+            result=double(arr[mid]+arr[mid+1])/2;
         }
         else{
-            int mid=low+(high-low)/2;
-            md=double(arr[mid]+arr[mid+1])/2;
+            result=arr[mid];
         }
-        return md;
+        return result;
     }
 };
 
