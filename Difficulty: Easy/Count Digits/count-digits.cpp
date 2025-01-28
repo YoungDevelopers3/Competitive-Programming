@@ -8,16 +8,21 @@ class Solution {
   public:
     // Function to count the number of digits in n that evenly divide n
     int evenlyDivides(int n) {
-        int num=n;
         int counter=0;
+        int num=n;
         while(num>0){
-           int d=num%10;
+            int d=num%10;
             if(d!=0 && n%d==0){
                 counter++;
             }
             num=num/10;
         }
         return counter;
+        
+        
+        
+        
+        
     }
 };
 
