@@ -10,12 +10,11 @@ using namespace std;
 class Solution{   
 public:
     pair<int, int> get(int a, int b){
-       int temp=0;
-       temp=a;
-       a=b;
-       b=temp;
-       pair<int,int>p={a,b};
-       return p;
+        int temp=a;
+        a=b;
+        b=temp;
+        pair<int,int>result={a,b};
+        return result;
     }
 };
 
