@@ -7,14 +7,14 @@ using namespace std;
 class Solution {
   public:
     int sumOfDigits(int n) {
-        int num=n;
-        int sum=0;
-        while(num>0){
-            int d=num%10;
-             sum=sum+d;
-            num=num/10;
-        }
-        return sum;
+       int num=n;
+       int sum=0;
+       while(num>0){
+           int d=num%10;
+           sum=sum+d;
+           num=num/10;
+       }
+       return sum;
     }
 };
 
