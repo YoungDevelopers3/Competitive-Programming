@@ -8,28 +8,27 @@ using namespace std;
 class Solution {
   public:
     int oppositeFaceOfDice(int n) {
-        int result=0;
         switch(n){
-            case 1:
-            result=6;
-            break;
-            case 2:
-            result=5;
-            break;
-            case 3:
-            result=4;
-            break;
-            case 4:
-            result=3;
-            break;
-            case 5:
-            result=2;
-            break;
-            case 6:
-            result=1;
-            break;
+        case 1:
+        return 6;
+        
+        case 2:
+        return 5;
+        
+        case 3:
+        return 4;
+        
+        case 4:
+        return 3;
+        
+        case 5:
+        return 2;
+        
+        case 6:
+        return 1;
+            
         }
-        return result;// Write Your Code here
+        
     }
 };
 
