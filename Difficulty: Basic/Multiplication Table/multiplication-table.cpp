@@ -9,14 +9,9 @@ class Solution
 public:
     vector<int> getTable(int N)
     {
-        vector<int>result;
-        for(int i=1;i<=10;i++){
-            int p=0;
-            p=N*i;
-            result.push_back(p);
-            
-        }
-        return result;
+       for(int i=1;i<=10;i++){
+           cout<<i*N<<" ";
+       }
     }
 };
 
