@@ -8,17 +8,17 @@ using namespace std;
 class Solution {
   public:
     bool isPerfect(vector<int> &arr) {
-      vector<int>v;
-      
-      for(int i=arr.size()-1;i>=0;i--){
-          v.push_back(arr[i]);
-      }
-       if(arr==v){
-           return true;
-       }
-       else{
-           return false;
-       }
+        vector<int>temp=arr;
+        reverse(temp.begin(),temp.end());
+        if(arr==temp){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+        
+        
     }
 };
 
