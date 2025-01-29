@@ -12,28 +12,28 @@ class Solution {
   public:
     bool isDigitSumPalindrome(int n) {
         int n1=n;
-        int s=0;
+        int sum=0;
         while(n1>0){
             int d=n1%10;
-            s=s+d;
+            sum=sum+d;
             n1=n1/10;
         }
-        
-        int num=s;
+        int num=sum;
         int rev=0;
         while(num>0){
             int d=num%10;
             rev=rev*10+d;
             num=num/10;
         }
-        if(s==rev){
-            return true;
         
+        if(sum==rev){
+            return true;
         }
         else{
             return false;
-            
         }
+        
+        
         
     }
 };
