@@ -9,24 +9,16 @@ class Solution {
   public:
 
     string removeVowels(string& s) {
-        // Your code goes 
         
-    unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
-        string result;
-        result.reserve(s.size()); // Preallocate memory for result
-
-        for (char ch : s) {
-            if (vowels.find(ch) == vowels.end()) {
-                result += ch; // Append only non-vowel characters
-            }
+        string result = "";
+    for (char ch : s) {
+        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' &&
+            ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U') {
+            result += ch;
         }
-
-        return result;
+    }
+    return result;
         
-        
-        
-        
-    
     }
 };
 
