@@ -7,49 +7,51 @@ using namespace std;
 
 // } Driver Code Ends
 // User function Template for C++
-
 class Solution {
   public:
   
+    bool isPossible(vector<int>stalls,int cows,int dist){
+        int current_cows=1;
+        int prev_dist=stalls[0];
+        
+        for(int i=1;i<stalls.size();i++){
+            if(stalls[i]-prev_dist>=dist){
+                prev_dist=stalls[i];
+                current_cows++;
+            }
+            
+        }
+        
+        if(current_cows>=cows){
+            return true;
+        }
+        else{
+          return  false;
+        }
+        
+    }
   
   
-   bool isPossible(vector<int>stall,int cows,int minidist){
-     int counter=1;
-     int prevcow=stall[0];
-     for(int i=1;i<stall.size();i++){
-         if(stall[i]-prevcow>=minidist){
-             prevcow=stall[i];
-             counter++;
-         }
-     }
-     
-     if(counter>=cows){
-         return true;
-     }
-     else{
-         return false;
-     }
-       
-   }
   
- 
     int aggressiveCows(vector<int> &stalls, int k) {
-         sort(stalls.begin(),stalls.end());
-         int low=1;
-         int result=0;
-         int high=stalls.back()-stalls.front();
-         while(low<=high){
-             int mid=low+(high-low)/2;
-             if(isPossible(stalls,k,mid)){
-                 result=mid;
-                 low=mid+1;
-             }
-             else{
-                 high=mid-1;
-             }
-             
-         }
-         return result;
+        sort(stalls.begin(),stalls.end());
+          int low=1;
+          int high=stalls.back()-stalls.front();
+          int ans=0;
+          while(low<=high){
+              int mid=low+(high-low)/2;
+              
+              if(isPossible(stalls,k,mid)){
+                  ans=mid;
+                  low=mid+1;
+              }
+              else{
+                  high=mid-1;
+              }
+              
+              
+          }
+          return ans;
         
     }
 };
