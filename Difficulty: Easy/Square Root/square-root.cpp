@@ -9,13 +9,15 @@ using namespace std;
 class Solution {
   public:
     int floorSqrt(int n) {
-        int root=sqrt(n);
-        if(root*root==n){
-            return root;
-        }
-        else{
-            return floor(root);
-        }
+       
+      int s=sqrt(n);
+      if(n==(s*s)){
+          return s;
+      }
+      else{
+          return floor(s);
+      }
+       
     }
 };
 
