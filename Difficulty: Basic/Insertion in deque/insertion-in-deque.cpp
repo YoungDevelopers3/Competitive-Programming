@@ -3,22 +3,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // } Driver Code Ends
 // User function Template for C++
 
 class Solution {
   public:
     // Function to insert all elements of the array in deque.
-    deque<int> insertInDq(vector<int>& arr) {
-        deque<int>result;
-        for(int i :arr){
-            result.push_back(i);
-        }
-        return result;
-        
-        
+    deque<int> deque_Init(int arr[], int n) {
+       deque<int>d;
+       for(int i=0;i<n;i++){
+           d.push_back(arr[i]);
+       }
+       return d;
     }
+    
 };
 
 //{ Driver Code Starts.
@@ -26,24 +24,20 @@ class Solution {
 int main() {
     int t;
     cin >> t;
-    cin.ignore();
+
     while (t--) {
-        string line;
-        getline(cin, line);
-        stringstream ss(line);
-        vector<int> arr;
-        int num;
-        while (ss >> num) {
-            arr.push_back(num);
-        }
+        int n;
+        cin >> n;
+
+        int arr[n];
+        for (int i = 0; i < n; i++) cin >> arr[i];
         Solution ob;
-        deque<int> dq = ob.insertInDq(arr);
-        for (auto itr = dq.begin(); itr != dq.end(); itr++) {
-            // printing the elements.
-            cout << *itr << " ";
-        }
+        deque<int> res = ob.deque_Init(arr, n);
+        for (auto x : res) cout << x << " ";
+
         cout << endl;
-        cout << "~\n";
-    }
+    
+cout << "~" << "\n";
+}
 }
 // } Driver Code Ends
