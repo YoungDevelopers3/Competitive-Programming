@@ -1,18 +1,22 @@
 class Solution {
 public:
-    int addDigits(int num) {
-        while(true){
 
-            if(num<10){
-                return num;
-            }
-            int sum=0;
-            while(num){
-                int d = num%10;
-                sum = sum+d;
-                num = num/10;
-            }
-            num = sum;
+    void check(int n,int &sum){
+     while(n>0){
+        int d=n%10;
+        sum=sum+d;
+        n=n/10;
+     }
+    }
+    int addDigits(int num) {
+        int sum=0;
+        check(num,sum);
+        num=sum;
+        while(num>=10){
+            sum=0;
+            check(num,sum);
+            num=sum;
         }
+        return num;
     }
 };
