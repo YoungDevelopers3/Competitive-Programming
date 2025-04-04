@@ -1,21 +1,15 @@
 class Solution {
 public:
     int countDigits(int num) {
-        if(num<10){
-            return 1;
-        }
-        else{
-            int c=0;
-            int temp=num;
-            while(temp>0){
-                int d=temp%10;
-                if(num%d==0){
-                   c++;
-                }
-                temp=temp/10;
-               
+        int n=num;
+        int div=0;
+        while(n>0){
+            int d=n%10;
+            if(num%d==0){
+                div++;
             }
-            return c;
+            n=n/10;
         }
+       return div;
     }
 };
