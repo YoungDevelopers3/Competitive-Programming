@@ -1,18 +1,18 @@
 class Solution {
 public:
     int differenceOfSum(vector<int>& nums) {
-        int sumele=0,sumdigi=0;
+        int ele_sum=0,digi_sum=0;
         for(int i:nums){
-            sumele=sumele+i;
-        }
-        for(int n:nums){
+            ele_sum=ele_sum+i;
+            int n=i;
             while(n>0){
                 int d=n%10;
-                sumdigi=sumdigi+d;
+                digi_sum=digi_sum+d;
                 n=n/10;
             }
         }
-        int diff=abs(sumele-sumdigi);
-        return diff;
+        return abs(digi_sum-ele_sum);
+
+
     }
 };
