@@ -1,19 +1,19 @@
 class Solution {
 public:
     int mostWordsFound(vector<string>& sentences) {
-        vector<int>freq;
-        for(string word:sentences){
-            int c=0;
-            for(char ch:word){
-                if(ch==' '){
-                    c++;
-                }
-                freq.push_back(c);
+        vector<int>v;
+        for(string str:sentences){
+            stringstream ss(str);
+           string word="";
+            int words=0;
+            while(ss>>word){
+                words++;
             }
+            v.push_back(words);
+
         }
-        sort(freq.rbegin(),freq.rend());
-        int mx=0;
-        mx=freq[0]+1;
-        return mx;
+        sort(v.begin(),v.end());
+        reverse(v.begin(),v.end());
+        return v[0];
     }
 };
