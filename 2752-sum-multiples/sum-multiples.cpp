@@ -1,12 +1,12 @@
 class Solution {
 public:
     int sumOfMultiples(int n) {
-        int sum=0;
+        int s=0;
         for(int i=1;i<=n;i++){
-            if(i%3==0||i%5==0||i%7==0){
-               sum=sum+i;
-            }
+             if(i%3==0||i%5==0||i%7==0){
+                s=s+i;
+             }
         }
-        return sum;
+        return s;
     }
 };
