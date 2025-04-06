@@ -1,15 +1,19 @@
 class Solution {
 public:
     int countKeyChanges(string s) {
-        int c=0;
-        for(int i=0;i<s.length()-1;i++){
-           if(s[i+1]!=char(s[i]+32) && s[i+1]!=char(s[i]-32)&& (s[i+1]!=s[i]))
-           {
-            c++;
-           }
-           
+        int counter=0;
+        string temp="";
+        for(char ch:s){
+            if(ch>='A' && ch<='Z'){
+                ch=ch+32;
+            }
+            temp=temp+ch;
         }
-        return c;
-        
+        for(int i=1;i<temp.size();i++){
+            if(temp[i-1]!=temp[i]){
+                counter++;
+            }
+        }
+        return counter;
     }
 };
