@@ -1,13 +1,13 @@
 class Solution {
 public:
     int subtractProductAndSum(int n) {
-        int s=0,p=1;
+        int prod=1,sum=0;
         while(n>0){
             int d=n%10;
-            s=s+d;
-            p=p*d;
+            prod=prod*d;
+            sum=sum+d;
             n=n/10;
         }
-        return p-s;
+        return prod-sum;
     }
 };
