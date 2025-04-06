@@ -1,9 +1,11 @@
 class Solution {
 public:
     int theMaximumAchievableX(int num, int t) {
-        int ans=0;
-        ans=num+2*t;
-        return ans;
-        
+        int x=0;
+        while(t--){
+            num++;
+            x++;
+        }
+        return num+x;
     }
 };
