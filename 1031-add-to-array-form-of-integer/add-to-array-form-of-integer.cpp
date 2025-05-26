@@ -1,7 +1,8 @@
 class Solution {
 public:
     vector<int> addToArrayForm(vector<int>& num, int k) {
-        reverse(num.begin(),num.end());
+        
+           reverse(num.begin(),num.end());
         int i=0;
         
         while(k>0){
@@ -22,5 +23,11 @@ public:
         }
         reverse(num.begin(),num.end());
         return num;
+
+
+
+
+
+
     }
 };
