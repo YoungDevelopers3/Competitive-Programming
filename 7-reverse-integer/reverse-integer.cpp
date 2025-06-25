@@ -16,9 +16,9 @@ public:
             string num=to_string(x);
             std::reverse(num.begin(),num.end());
             ans=stoll(num);
-            if(ans>INT_MAX){
-                return 0;
-            }
+            // if(ans>INT_MAX){
+            //     return 0;
+            // }
             ans=ans*-1;
         }
         if(ans<INT_MAX && ans>INT_MIN){
