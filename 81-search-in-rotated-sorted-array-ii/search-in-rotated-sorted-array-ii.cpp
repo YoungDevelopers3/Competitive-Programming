@@ -1,39 +1,36 @@
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
-        int n=nums.size();
+      
+        set<int>st(nums.begin(),nums.end());
+        nums.clear();
+        for(auto it=st.begin();it!=st.end();it++){
+            nums.push_back(*it);
+        }
         int low=0;
-        int high=n-1;
+        int high=nums.size()-1;
         while(low<=high){
-            int mid=(low+high)/2;
+            int mid=low+(high-low)/2;
             if(nums[mid]==target){
                 return true;
             }
-            /*As the elements are repeating what if elements at
-            low==mid==high   */
-            if(nums[low]==nums[mid] && nums[mid]==nums[high]){
-                low++;
-                high--;
-                continue;
-            }
-            //If the right part is sorted
-            if(nums[low]<=nums[mid]){
-                if(nums[low]<=target && target <=nums[mid]){
+            else  if(nums[low]<=nums[mid]){
+                if(nums[mid]>=target){
                     high=mid-1;
                 }
                 else{
                     low=mid+1;
                 }
             }
-            //If the left part is sorted
-            else{
-                if(nums[mid]<=target && target <=nums[high]){
+             else if(nums[mid]<=nums[high]){
+                if(target<=nums[high]){
                     low=mid+1;
                 }
-                else {
+                else{
                     high=mid-1;
                 }
             }
+                
         }
         return false;
     }
