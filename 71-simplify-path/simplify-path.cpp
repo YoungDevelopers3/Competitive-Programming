@@ -12,6 +12,7 @@ public:
                 temp=temp+path[i];
                 i++;
             }
+            
             if(temp=="."){
                 continue;
             }
