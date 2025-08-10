@@ -1,12 +1,6 @@
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
-      
-        set<int>st(nums.begin(),nums.end());
-        nums.clear();
-        for(auto it=st.begin();it!=st.end();it++){
-            nums.push_back(*it);
-        }
         int low=0;
         int high=nums.size()-1;
         while(low<=high){
@@ -14,23 +8,27 @@ public:
             if(nums[mid]==target){
                 return true;
             }
-            else  if(nums[low]<=nums[mid]){
-                if(nums[mid]>=target){
-                    high=mid-1;
-                }
-                else{
-                    low=mid+1;
-                }
+            if((nums[low]==nums[mid])&&(nums[mid]==nums[high])){
+                low++;
+                high--;
+                continue;
             }
-             else if(nums[mid]<=nums[high]){
-                if(target<=nums[high]){
-                    low=mid+1;
-                }
-                else{
+            if(nums[low]<=nums[mid]){//left half is sorted
+                 if(nums[mid]>=target && nums[low]<=target){
                     high=mid-1;
-                }
+                 }
+                 else{
+                    low=mid+1;
+                 }
             }
-                
+            else{
+                if(nums[mid]<=target && nums[high]>=target){
+                         low=mid+1;
+                      }
+                    else{
+                       high=mid-1;
+                     }
+            }
         }
         return false;
     }
