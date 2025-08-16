@@ -1,10 +1,9 @@
 class Solution {
 public:
-
-    vector<string>valid;
+    vector<string>brackets;
     void generate(string &s,int open,int close){
         if(open==0 && close==0){
-            valid.push_back(s);
+            brackets.push_back(s);
             return;
         }
         if(open>0){
@@ -18,12 +17,9 @@ public:
             s.pop_back();
         }
     }
-
-
     vector<string> generateParenthesis(int n) {
-        string s="";
-        generate(s,n,n);
-        return valid;
-
+         string s="";
+         generate(s,n,n);
+         return brackets;          
     }
 };
