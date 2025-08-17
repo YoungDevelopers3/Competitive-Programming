@@ -1,33 +1,30 @@
 class Solution {
 public:
-    
-    
-    void check(int index,vector<int>& candidates,int target,vector<vector<int>>& ans,vector<int>& combination){
-          if(index==candidates.size()){
+    void generate(int index,int target,vector<int>& candidates,vector<vector<int>>& ans,vector<int>& combination){
+        if(index==candidates.size()){
             if(target==0){
-                ans.push_back(combination);
-                for(int i:combination){
-                cout<<i<<" ";
+            ans.push_back(combination);
             }
-            cout<<endl;
-            }
-            
-            return ;
-          }
-          if(candidates[index]<=target){
+             return;                   
+        }
+        
+        if(candidates[index]<=target){
             combination.push_back(candidates[index]);
-            check(index,candidates,target-candidates[index],ans,combination);
+            generate(index,target-candidates[index],candidates,ans,combination);
             combination.pop_back();
-          }
-           check(index+1,candidates,target,ans,combination);
+        } 
+        generate(index+1,target,candidates,ans,combination);
+        
+
+
     }
-    
+
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<vector<int>>ans;
         vector<int>combination;
-        check(0,candidates,target,ans,combination);
+        int index=0;
+        generate(index,target,candidates,ans,combination);
         return ans;
-
 
     }
 };
