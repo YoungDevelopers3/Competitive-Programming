@@ -1,21 +1,25 @@
 class Solution {
 public:
-    vector<vector<int>>all_subsets;
-    void generate(vector<int> &subset,int i,vector<int> &nums){
-          if(i==nums.size()){
-            all_subsets.push_back(subset);
-            return;
-          }
-          generate(subset,i+1,nums);
-          subset.push_back(nums[i]);
-          generate(subset,i+1,nums);
-          subset.pop_back();
+    void generate(int i,vector<int>& nums,vector<int>& subset,vector<vector<int>>& ans){
+      if(i==nums.size()){
+        ans.push_back(subset);
+        return;
+      }    
+      
+      //if we are including the element
+      subset.push_back(nums[i]);
+      generate(i+1,nums,subset,ans);
+      subset.pop_back();
+  
+      //if we are not including this element
+      generate(i+1,nums,subset,ans);
+
     }
     vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>>ans;
         vector<int>subset;
         int i=0;
-        generate(subset,i,nums);        
-        return all_subsets;
-
+        generate(i,nums,subset,ans);
+        return ans;
     }
 };
