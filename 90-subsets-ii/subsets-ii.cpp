@@ -1,32 +1,34 @@
 class Solution {
 public:
-
-    void check(int index,vector<int>& nums,vector<int>& subset,vector<vector<int>>& subsets,int n){
-        if(index==n){
-            subsets.push_back(subset);
+    void generate(int i,vector<int>& subset,vector<vector<int>>& ans,vector<int>& nums){
+         if(i==nums.size()){
+            ans.push_back(subset);
             return;
-        }
-       //Selecting the element
-       subset.push_back(nums[index]);
-       check(index+1,nums,subset,subsets,n);
-       subset.pop_back();
+         }
 
-       while(index+1<n && nums[index]==nums[index+1]){
-        index++;
+       //if including the element
+       
+       
+            subset.push_back(nums[i]);
+            
+            generate(i+1,subset,ans,nums);
+            subset.pop_back();
+
+       //if not including the element
+       while(i<nums.size()-1 && nums[i]==nums[i+1]){
+         i++;
        }
-       check(index+1,nums,subset,subsets,n);
+       generate(i+1,subset,ans,nums);
+
+
     }
-
-
-
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        vector<vector<int>>subsets;
+        vector<vector<int>>ans;
+       
         vector<int>subset;
-        int index=0;
-        int n=nums.size();
-        check(index,nums,subset,subsets,n);
-        sort(subsets.begin(),subsets.end());
-        return subsets;
+        int i=0;
+        sort(nums.begin(),nums.end());
+        generate(i,subset,ans,nums);
+        return ans;
     }
 };
