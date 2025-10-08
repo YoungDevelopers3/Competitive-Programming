@@ -1,26 +1,30 @@
 class Solution {
 public:
     int calPoints(vector<string>& operations) {
-        vector<int>record;
-
-         for(string command:operations){
-        if(command=="C"){
-            record.pop_back();
+        vector<int>v;
+        for(string str:operations){
+            if(str!="C" && str!="D" && str!="+"){
+                int ele=stoi(str);
+                v.push_back(ele);
+            }
+            else if(str=="C"){
+                v.pop_back();
+            }
+            else if(str=="D"){
+                int n=v.size()-1;
+                v.push_back((2*v[n]));
+            }
+            else{
+                int sum=0;
+                 int n=v.size()-1;
+                 sum=v[n]+v[n-1];
+                v.push_back(sum);
+            }
         }
-        else if(command=="D"){
-            record.push_back(2*record.back());
+        int s=0;
+        for(int i:v){
+           s=s+i;
         }
-        else if(command=="+"){
-            record.push_back(record[record.size()-1]+record[record.size()-2]);
-        }
-        else {
-            record.push_back(stoi(command));
-        }
-    }
-    int totalSum=0;
-    for(int score:record){
-        totalSum=totalSum+score;
-    }
-    return totalSum;
+        return s;
     }
 };
