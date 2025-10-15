@@ -30,8 +30,9 @@ public:
            Node* copyNode= new Node(oldTemp->val);
            m[oldTemp]=copyNode;
            newTemp->next=copyNode;
-           oldTemp=oldTemp->next;
            newTemp=newTemp->next;
+           oldTemp=oldTemp->next;
+           
         }
 
         oldTemp=head;
