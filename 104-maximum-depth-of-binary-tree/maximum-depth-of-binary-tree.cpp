@@ -15,6 +15,6 @@ public:
         if(root==NULL){
             return 0;
         }
-        return max(maxDepth(root->left),maxDepth(root->right))+1;
+       return 1+max(maxDepth(root->right),maxDepth(root->left));
     }
 };
