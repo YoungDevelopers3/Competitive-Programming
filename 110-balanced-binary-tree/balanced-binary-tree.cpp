@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    int check(TreeNode* &root){
+    int check(TreeNode* root){
         if(root==NULL){
             return 0;
         }
@@ -26,14 +26,14 @@ public:
         if(abs(lh-rh)>1){
             return -1;
         }
+
         return 1+max(lh,rh);
-        
     }
+    
     bool isBalanced(TreeNode* root) {
-       if(check(root)!=-1){
+        if(check(root)==-1){
+            return false;
+        }
         return true;
-       }
-       return false;
-        
     }
 };
