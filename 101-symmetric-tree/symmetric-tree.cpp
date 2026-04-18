@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    bool check(TreeNode* left,TreeNode* right){
+     bool check(TreeNode* left,TreeNode* right){
         if(left==NULL || right==NULL){
             return left==right;
         }
