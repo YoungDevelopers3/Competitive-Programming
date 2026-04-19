@@ -11,7 +11,7 @@
  */
 class BSTIterator {
 public:
-    stack<TreeNode*>st;
+     stack<TreeNode*>st;
     void helper(TreeNode* node){
         while(node!=NULL){
             st.push(node);
