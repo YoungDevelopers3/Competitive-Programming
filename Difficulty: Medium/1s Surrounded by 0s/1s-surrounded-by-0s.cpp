@@ -1,0 +1,52 @@
+class Solution {
+  public:
+    int cntOnes(vector<vector<int>>& grid) {
+        // code here
+         int n=grid.size();
+        int m=grid[0].size();
+        vector<vector<int>>visited(n,vector<int>(m,0));
+        queue<pair<int,int>>q;
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(i==0||j==0 ||i==n-1||j==m-1){
+                    if(grid[i][j]==1){
+                        visited[i][j]=1;
+                        q.push({i,j});
+                    }
+                }
+            }
+        }
+int delrow[] = {-1, 0, +1, 0};
+        int delcol[] = {0, +1, 0, -1};
+        while(!q.empty()){
+            auto[row,col]=q.front();
+            q.pop();
+            for(int k=0;k<4;k++){
+                int nrow=row+delrow[k];
+                int ncol=col+delcol[k];
+
+                if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && grid[nrow][ncol]==1 && visited[nrow][ncol]==0 ){
+                    visited[nrow][ncol]=1;
+                    q.push({nrow,ncol});
+                }
+            }
+        }
+
+        int counter=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(grid[i][j]==1 && visited[i][j]==0){
+                    counter++;
+                }
+            }
+        }
+        return counter;
+        
+        
+        
+        
+        
+        
+    }
+};
