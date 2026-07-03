@@ -4,13 +4,9 @@ class Solution {
   
    bool calc(int sum,int n,vector<int>& arr, vector<vector<int>>& dp){
        
-        if(sum==0){
-            return true;
-        }      
-        
-        if(n==0){
-            return false;
-        }
+       if (n == 0) {
+        return sum == 0 ? 1 : 0;    // only decide here, after all elements considered
+    }
         
         if(dp[n][sum]!=-1){
             return dp[n][sum];
