@@ -9,14 +9,14 @@ public:
         }
         
         if(text1[i-1]==text2[j-1]){
-            dp[i][j]= 1+calc(i-1,j-1,text1,text2,dp);
+          return  dp[i][j]= 1+calc(i-1,j-1,text1,text2,dp);
         }
 
         else{
-            dp[i][j]=max(calc(i-1,j,text1,text2,dp),calc(i,j-1,text1,text2,dp));
+          return  dp[i][j]=max(calc(i-1,j,text1,text2,dp),calc(i,j-1,text1,text2,dp));
         }
 
-        return dp[i][j];
+        //return dp[i][j];
 
 
     }
