@@ -11,7 +11,7 @@ public:
             dp[i][j]=1+calc(dp,s,t,i-1,j-1);
         }
         else{
-            dp[i][j]=max(calc(dp,s,t,i,j-1),calc(dp,s,t,i-1,j));
+            dp[i][j]=calc(dp,s,t,i,j-1);
         }
 
         return dp[i][j];
