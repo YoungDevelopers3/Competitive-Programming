@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int calc(int i,int j,vector<vector<int>> &dp,vector<int> &parts){
+    int calc(int i,int j,vector<vector<int>> &dp,vector<int> &cuts){
         if(j-i<=1){
             return 0;
         }
@@ -10,7 +10,7 @@ public:
         int result=INT_MAX;
 
         for(int k=i+1;k<j;k++){
-            int cost=calc(i,k,dp,parts)+calc(k,j,dp,parts)+(parts[j]-parts[i]);
+            int cost=calc(i,k,dp,cuts)+calc(k,j,dp,cuts)+(cuts[j]-cuts[i]);
             result=min(result,cost);
         }
         dp[i][j]=result;
@@ -20,10 +20,10 @@ public:
         cuts.push_back(0);
         cuts.push_back(n);
         sort(cuts.begin(),cuts.end());
-        vector<int>parts;
-        parts=cuts;
-        int m=parts.size();
+       
+     
+        int m=cuts.size();
         vector<vector<int>>dp(m,vector<int>(m,-1));
-        return calc(0,m-1,dp,parts);
+        return calc(0,m-1,dp,cuts);
     }
 };
