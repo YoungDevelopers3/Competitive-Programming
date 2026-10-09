@@ -7,17 +7,21 @@ public:
             if(i>0 && nums[i-1]==nums[i]){
                 continue;
             }
-            int a=nums[i];
-            int j=i+1,k=nums.size()-1;
+            int j=i+1;
+            int k=nums.size()-1;
             while(j<k){
-                int sum=a+nums[j]+nums[k];
+                int sum=nums[i]+nums[j]+nums[k];
                 if(sum==0){
-                    ans.push_back({a,nums[j],nums[k]});
+                    ans.push_back({nums[i],nums[j],nums[k]});
                     j++;
                     k--;
                     while(j<k && nums[j-1]==nums[j]){
                         j++;
                     }
+                    while(j<k && nums[k]==nums[k+1]){
+                        k--;
+                    }
+                    
                 }
                 else if(sum>0){
                     k--;
@@ -25,9 +29,8 @@ public:
                 else{
                     j++;
                 }
-
-            } 
-            
+                
+            }
         }
         return ans;
     }
