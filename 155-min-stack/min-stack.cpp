@@ -5,14 +5,15 @@ stack<pair<int,int>>st;
         
     }
     
-    void push(int val) {
+    void push(int value) {
         if(st.empty()){
-            st.push({val,val});
+            st.push({value,value});
         }
         else{
-            int mini=min(st.top().second,val);
-            st.push({val,mini});
+            int min_val=min(st.top().second,value);
+            st.push({value,min_val});
         }
+        
     }
     
     void pop() {
@@ -31,7 +32,7 @@ stack<pair<int,int>>st;
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack* obj = new MinStack();
- * obj->push(val);
+ * obj->push(value);
  * obj->pop();
  * int param_3 = obj->top();
  * int param_4 = obj->getMin();
