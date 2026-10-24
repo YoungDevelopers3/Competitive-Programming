@@ -2,21 +2,16 @@ class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         int n=temperatures.size();
-        vector<int>ans;
+        vector<int>ans(n,0);
         stack<int>st;
-        for(int i=n-1;i>=0;i--){
-            while(!st.empty() && temperatures[st.top()]<=temperatures[i]){
+        for(int i=0;i<n;i++){
+            while(!st.empty() && temperatures[st.top()]<temperatures[i]){
+                int j=st.top();
                 st.pop();
-            }
-            if(!st.empty()){
-                ans.push_back(abs(i-st.top()));
-            }
-            else{
-                ans.push_back(0);
+                ans[j]=i-j;
             }
             st.push(i);
         }
-        reverse(ans.begin(),ans.end());
         return ans;
     }
 };
