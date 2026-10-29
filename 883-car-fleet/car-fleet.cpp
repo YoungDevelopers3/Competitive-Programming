@@ -1,22 +1,28 @@
 class Solution {
 public:
     int carFleet(int target, vector<int>& position, vector<int>& speed) {
-         int n=position.size();
-        vector<pair<int,double>>time(n);
+        int fleet=1;
+        int n=position.size();
+        vector<pair<int,double>>times(n,{0,0.0});
         for(int i=0;i<n;i++){
-            time[i]={position[i],(double)(target-position[i])/speed[i]};
+            double time=0;
+            time=(double)(target-position[i])/speed[i];
+            times[i]={position[i],time};
         }
-        sort(time.begin(),time.end());
-        reverse(time.begin(),time.end());
-        int count=0;
-        double maxTime=0;
-        for(int i=0;i<n;i++){
-            if(time[i].second>maxTime){
-                count++;
-                maxTime=time[i].second;
+        sort(times.begin(),times.end());
+        reverse(times.begin(),times.end());
+        int i=1;
+        double current=times[0].second;
+        while(i<n){
+            if(current>=times[i].second){
+                i++;
             }
-            
+            else{
+                current=times[i].second;
+                fleet++;
+                i++;
+            }
         }
-        return count;
+        return fleet;
     }
 };
