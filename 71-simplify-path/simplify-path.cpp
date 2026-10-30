@@ -2,42 +2,29 @@ class Solution {
 public:
     string simplifyPath(string path) {
         stack<string>st;
-        int n=path.size();
-        for(int i=0;i<n;i++){
-            string temp="";
-            if(path[i]=='/'){
+        stringstream ss(path);
+        string word;
+        while(getline(ss,word,'/')){
+            if(word=="."||word==""){
                 continue;
             }
-            while(i<n && path[i]!='/'){
-                temp=temp+path[i];
-                i++;
-            }
-            
-            if(temp=="."){
-                continue;
-            }
-            else if(temp==".."){
-                 if(!st.empty()){
+            else if(word==".."){
+                if(!st.empty()){
                     st.pop();
-                 }
-                 else{
-                    continue;
-                 }
+                }
             }
             else{
-                st.push(temp);
+                st.push(word);
             }
-
         }
-        string answer="";
+        if(st.empty()){
+            return "/";
+        }
+        string ans="";
         while(!st.empty()){
-            answer='/'+st.top()+answer;
+            ans="/"+st.top()+ans;
             st.pop();
         }
-        if(answer.size()==0){
-            answer="/";
-        }
-        return answer;
-
+        return ans;
     }
 };
