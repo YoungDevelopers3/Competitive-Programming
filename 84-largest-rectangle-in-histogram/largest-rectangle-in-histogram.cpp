@@ -2,39 +2,37 @@ class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
         int n=heights.size();
-        vector<int>left(n);
-        vector<int>right(n);
-        stack<int>s;
-
-        //finding right smaller for each bar
+        vector<int>right(n,0);
+        vector<int>left(n,0);
+        stack<int>st;
+        //for right lowest
         for(int i=n-1;i>=0;i--){
-            while(s.size()>0 && heights[s.top()]>=heights[i]){
-                s.pop();
+            while(st.size()>0 && heights[st.top()]>=heights[i]){
+                st.pop();
             }
-            right[i]=s.empty() ? n:s.top();
-            s.push(i);
+             right[i] = st.empty() ? n : st.top();
+            st.push(i);
         }
+         
+                 while (!st.empty()){
+                    st.pop();
+                 }
 
-        while(!s.empty()){
-            s.pop();
-        }
 
-        //finding left smaller for each bar
+        //for left lowest
         for(int i=0;i<n;i++){
-            while(s.size() >0 && heights[s.top()]>=heights[i]){
-                s.pop();
+            while(st.size()>0 && heights[st.top()]>=heights[i]){
+                st.pop();
             }
-            left[i]=s.empty() ? -1 :s.top();
-            s.push(i);
-
+            left[i] = st.empty() ? -1 : st.top();
+            st.push(i);
         }
+
         int ans=0;
         for(int i=0;i<n;i++){
-           int width=right[i]-left[i]-1;
-           int currArea=heights[i]*width;
-           ans=max(ans,currArea);
+            int width=abs(right[i]-left[i]-1);
+            ans=max(ans,(heights[i]*width));
         }
         return ans;
-
     }
 };
